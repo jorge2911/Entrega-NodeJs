@@ -1,16 +1,66 @@
-/*const products = [
-  { id: 1, name: 'Producto 1', price: 1000 },
-  { id: 2, name: 'Producto 2', price: 2000 },
-];*/
-// import {obtenerProducto, obtenerProductos} from "../models/products.models.js"
-
-import {actualizarProducto, agregarProducto, eliminarProducto, obtenerProducto, obtenerProductos} from "../models/products.models.js";
+import {
+  actualizarProducto,
+  agregarProducto,
+  eliminarProducto,
+  obtenerProducto,
+  obtenerProductos
+} from "../models/products.models.js";
 
 export const addProductService = async (product) => {
+  try {
+    const newProduct = await agregarProducto(product);
+    return newProduct;
+  } catch (error) {
+    throw error;
+  }
+};
 
- return await agregarProducto(product);
+export const deleteProductService = async (id) => {
+  try {
+    await eliminarProducto(id);
+    return { message: "Producto eliminado correctamente" };
+  } catch (error) {
+    throw error;
+  }
+};
 
-/*  return(
+export const editProductService = async (id, product) => {
+  try {
+    const updatedProduct = await actualizarProducto(id, product);
+    return updatedProduct;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const getAllProductsService = async () => {
+  try {
+    const productos = await obtenerProductos();
+    return productos;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const getProductByIdService = async (id) => {
+  try {
+    const product = await obtenerProducto(id);
+    return product;
+  } catch (error) {
+    throw error;
+  }
+};
+
+
+/* import {actualizarProducto, 
+  agregarProducto,
+   eliminarProducto, 
+   obtenerProducto, 
+   obtenerProductos
+  } from "../models/products.models.js";
+
+export const addProductService = async (product) => {
+  return(
     new Promise(async (res, rej) => {
       try{
         const newProduct = await agregarProducto(product)
@@ -19,7 +69,8 @@ export const addProductService = async (product) => {
         rej(error)
       }
     })
-  )  */
+  )
+
 }
 
 export const deleteProductService = async (id) => {
@@ -53,7 +104,7 @@ export const editProductService = async (id, product) => {
 export const getAllProductsService = async () => {
   return(
     new Promise(async (res,rej)=> {
-      console.log("test2 dentro de servicio")
+      console.log("test dentro de servicio")
       try{
         const productos = await obtenerProductos()
         res(productos);
@@ -76,3 +127,4 @@ export const getProductByIdService = async (id) => {
     })
   )
 };
+*/

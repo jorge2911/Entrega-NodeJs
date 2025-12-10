@@ -12,7 +12,7 @@ export const addProduct = async (req, res) => {
         const newProduct = await productService.addProductService(product)
         res.status(200).json(newProduct);
     }catch (error){
-       // res.status(500)   probar y quitar
+
         console.error("Error en addProduct:", error);
         return res.status(500).json({ error: "Error interno del servidor" });
     }
@@ -26,7 +26,7 @@ export const deleteProduct = async (req, res) => {
             await productService.deleteProductService(id)
             res.sendStatus(200)            //status(200)//.send()
         }else{
-            res.status(400)
+            return res.status(400).json({ error: "ID requerido" });
         }
     }catch(error){
         return res.status(500).json({ error: "Error interno del servidor" });
@@ -38,6 +38,7 @@ export const editProduct = async (req, res) => {
     try{
         const id = req.params.id
         const product = req.body
+       
         if (id && product){
             const newProduct = await productService.editProductService(id, product)
             res.status(200).json(newProduct);

@@ -3,7 +3,7 @@ import cors from "cors"
 import { configDotenv } from "dotenv"
 import rutasProductos from "./src/routes/products.routes.js"
 import rutasLog from "./src/routes/auth.routes.js"
-import { authentication } from "./src/midleware/authentication.js"
+import { authentication } from "./src/middleware/authentication.js"
 
 const app = express();
 
@@ -21,20 +21,37 @@ const corsConfig = {
 app.use(cors(corsConfig))
 app.use(express.json())
 
+// =========================
+// RUTAS PÚBLICAS
+// =========================
 app.use("/api", rutasLog)
-app.use(authentication);
+//app.use(authentication);
 
+// =========================
+// RUTAS PÚBLICAS
+// =========================
 app.use((req, res, next) => {
     console.log(`Datos received at:  ${req.method} ${req.url}`);
     next();
 });
 
-app.use("/api", rutasProductos)
+// =========================
+// RUTAS PROTEGIDAS
+// =========================
+app.use("/api", authentication, rutasProductos)
 
+// =========================
+// MANEJO 404
+// =========================
 app.use((req, res, next) => {
     res.status(404).send('Recurso no encontrado o ruta inválida');
 });
 
+// =========================
+// INICIO DEL SERVIDOR
+// =========================
 app.listen(PORT, () => {
     console.log(`Servidor corriendo en http://localhost:${PORT}`)
 })
+
+export default app;

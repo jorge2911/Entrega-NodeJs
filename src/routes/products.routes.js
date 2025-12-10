@@ -13,7 +13,7 @@ routes.get("/products", getAllProducts)
 
 routes.get("/products/:id", getProductById)
 
-routes.post("/products/create", addProduct)
+routes.post("/products/", addProduct)
 
 routes.delete("/products/:id", deleteProduct)
 
