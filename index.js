@@ -1,6 +1,7 @@
 import express from "express"
 import cors from "cors"
 import { configDotenv } from "dotenv"
+configDotenv();
 import rutasProductos from "./src/routes/products.routes.js"
 import rutasLog from "./src/routes/auth.routes.js"
 import { authentication } from "./src/middleware/authentication.js"
@@ -25,10 +26,10 @@ app.use(express.json())
 // RUTAS PÚBLICAS
 // =========================
 app.use("/api", rutasLog)
-//app.use(authentication);
+app.use(authentication);
 
 // =========================
-// RUTAS PÚBLICAS
+// MIDDLEWARE de LOGIN
 // =========================
 app.use((req, res, next) => {
     console.log(`Datos received at:  ${req.method} ${req.url}`);
@@ -36,9 +37,9 @@ app.use((req, res, next) => {
 });
 
 // =========================
-// RUTAS PROTEGIDAS
+// RUTAS PROTEGIDAS products
 // =========================
-app.use("/api", authentication, rutasProductos)
+app.use("/api", rutasProductos)
 
 // =========================
 // MANEJO 404
