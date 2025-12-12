@@ -28,6 +28,7 @@ app.use(express.json())
 app.use("/api", rutasLog)
 app.use(authentication);
 
+
 // =========================
 // MIDDLEWARE de LOGIN
 // =========================

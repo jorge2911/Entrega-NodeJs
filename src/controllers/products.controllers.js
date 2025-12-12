@@ -1,6 +1,7 @@
 import * as productService from "../services/products.services.js"
-
-//        Crear producto  -------------------------------------
+// ============================================================
+// ----------------   Crear producto    -----------------------
+// ============================================================
 export const addProduct = async (req, res) => {
     try{
         const product = req.body;
@@ -12,8 +13,9 @@ export const addProduct = async (req, res) => {
         return res.status(500).json({ error: "Error interno del servidor" });
     }
 };
-
-// Eliminar producto --------------------------------
+// ============================================================
+// ------------------  Eliminar producto ----------------------
+// ============================================================
 export const deleteProduct = async (req, res) => {
     try{
         const id = req.params.id;
@@ -27,8 +29,10 @@ export const deleteProduct = async (req, res) => {
         return res.status(500).json({ error: "Error interno del servidor" });
     }
 };
+// ============================================================
+// ---------------    Editar producto    ----------------------
+// ============================================================
 
-// Editar producto --------------------------------
 export const editProduct = async (req, res) => {
     try {
         const id = req.params.id;
@@ -44,8 +48,9 @@ export const editProduct = async (req, res) => {
         return res.status(500).json({ error: "Error interno del servidor" });
     }
 };
-
-// TODOS los productos --------------------------------
+// ============================================================
+// -----------------   TODOS los productos   ------------------
+// ============================================================
 export const getAllProducts = async (req, res) => {
     try {
         const products = await productService.getAllProductsService();
@@ -54,9 +59,10 @@ export const getAllProducts = async (req, res) => {
         return res.status(500).json({ error: "Error interno del servidor" });
     }
 };
+// ============================================================
+// ------------------    PRODUCTOS x ID    --------------------
+// ============================================================
 
-
-// PRODUCTOS x ID
 export const getProductById = async (req, res) => {
     try{
         const id = req.params.id;

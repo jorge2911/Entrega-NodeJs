@@ -7,6 +7,9 @@ import {
     getProductById
 } from "../controllers/products.controllers.js"
 
+// ============================================================
+// rutas para atender peticiones que interactúan con productos
+//=============================================================
 const routes = express.Router()
 
 routes.get("/products", getAllProducts)

@@ -9,9 +9,9 @@ import {  doc,
           deleteDoc, 
   } from "firebase/firestore";
 
-                    // =====================================
-                    // Obtener un producto por ID
-                    // =====================================
+// =====================================
+// Obtener un producto por ID
+// =====================================
 export function obtenerProducto(id){
   return new Promise(async (res, rej) => {
     try{
@@ -22,10 +22,9 @@ export function obtenerProducto(id){
         console.log("Snap data: ", docSnap)
         console.log("Document ID:", docSnap.id);
         console.log("Document data:", docSnap.data());
-        //res(docSnap.data())
         res({ id: docSnap.id, ...docSnap.data() }) //devuelve Id + datos
       } else {
-        console.log("No such document!");
+        console.log("Documento no encontrado!!!");
         res()
       }
     }catch(error){
@@ -34,8 +33,6 @@ export function obtenerProducto(id){
     }
   })
 }
-//obtenerProductos(id)
-
 // =====================================
 // Obtener TODOS los productos
 // =====================================  
@@ -61,12 +58,9 @@ export function obtenerProductos(){
   )
 }
 
-
-
 // =====================================
 // Agregar un nuevo producto
 // =====================================
-
 export function agregarProducto(producto){
 return(
     new Promise(async (res, rej) => {
@@ -82,11 +76,9 @@ return(
  )
 }
 
-
 // =====================================
 // Actualizar un producto existente
 // =====================================
-
 export function actualizarProducto(id, producto){
   return(
     new Promise(async (res, rej) => {
@@ -104,11 +96,9 @@ export function actualizarProducto(id, producto){
   )
 }
 
-
 // =====================================
 // Eliminar un producto
 // =====================================
-
 export function eliminarProducto(id){
 return(
     new Promise(async (res, rej) => {
