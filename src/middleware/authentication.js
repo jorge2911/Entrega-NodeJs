@@ -1,23 +1,4 @@
-/* import jwt from 'jsonwebtoken';
-  import 'dotenv/config';
-  const secret_key = "saldkj289sad21ml"//process.env.JWT_SECRET_KEY;
-  // Middleware para verificar el token JWT
- 
-  export const authentication = (req, res, next) => {
-       
-    const header = req.headers["authorization"];
-    if (!header) return res.sendStatus(401);
 
-    const token = header.split(" ")[1];
-    if (!token) return res.sendStatus(401);
-
-
-    jwt.verify(token, secret_key, (err) => {
-        if (err) return res.sendStatus(403);
-        next();
-    });
-  }
-*/
 import jwt from 'jsonwebtoken';
 const secret_key = "saldkj289sad21ml";
 

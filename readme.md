@@ -1,6 +1,6 @@
 Proyecto Node.js – Descripción General - Alumno: Jorge Vitale
 
-Este proyecto es una aplicación desarrollada en Node.js, creada con fines educativos para practicar conceptos fundamentales del curso de Back-End de Talento-Tech
+Este proyecto es una aplicación desarrollada en Node.js, creada con fines educativos para aprender conceptos fundamentales del curso de Back-End de Talento-Tech
 
 Uso de módulos en Node.js
 
@@ -8,6 +8,7 @@ Manejo de rutas y servidor básico
 Interacción con archivos
 Uso de librerías externas
 Implementación de lógica backend
+Base de datos en Firebase
 
 El archivo principal es index.js, que inicia el servidor y gestiona las rutas principales de la aplicación.
 La estructura de arbol o directorios es:
@@ -34,9 +35,11 @@ auth.routes.js
 products.routes.js
 /Entrega-Final/services/
 products.services.js
+
 Requisitos
 Node.js 18 o superior
-npm (incluido con Node)
+npm 
+
 Instalar dependencias
 npm install express cors jsonwebtoken dotenv 
 Ejecutar en Vsc y levantar el servidor
