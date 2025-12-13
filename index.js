@@ -26,7 +26,7 @@ app.use(express.json())
 // RUTAS PÚBLICAS
 // =========================
 app.use("/api", rutasLog)
-app.use(authentication);
+//app.use(authentication);
 
 
 // =========================
@@ -40,7 +40,7 @@ app.use((req, res, next) => {
 // =========================
 // RUTAS PROTEGIDAS products
 // =========================
-app.use("/api", rutasProductos)
+app.use("/api", authentication, rutasProductos);
 
 // =========================
 // MANEJO 404
