@@ -45,7 +45,7 @@ Instalar dependencias
 npm install express cors jsonwebtoken dotenv 
 Ejecutar en Vsc y levantar el servidor
 npm start
-
+localhost:3000
 Autenticación
 - El login es público.
 - Al autenticarse correctamente se genera un **token JWT**.
@@ -57,3 +57,13 @@ GET /api/products/id
 POST /api/products/create
 PUT /api/products/id
 DELETE /api/products/id
+
+VERCEL
+https://entrega-node-js-gmol.vercel.app
+POST https://entrega-node-js-gmol.vercel.app/api/login
+GET https://entrega-node-js-gmol.vercel.app/api/products
+GET https://entrega-node-js-gmol.vercel.app/api/products/ID
+POST https://entrega-node-js-gmol.vercel.app/api/products/create
+PUT https://entrega-node-js-gmol.vercel.app/api/products/ID
+DELETE https://entrega-node-js-gmol.vercel.app/api/products/ID
+
