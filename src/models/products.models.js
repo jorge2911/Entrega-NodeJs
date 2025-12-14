@@ -79,7 +79,7 @@ return(
 // =====================================
 // Actualizar un producto existente
 // =====================================
-export function actualizarProducto(id, producto){
+/* export function actualizarProducto(id, producto){
   return(
     new Promise(async (res, rej) => {
       try{
@@ -95,6 +95,39 @@ export function actualizarProducto(id, producto){
     })
   )
 }
+*/
+// =====================================
+// Actualizar un producto existente
+// =====================================
+export function actualizarProducto(id, producto) {
+  return new Promise(async (res, rej) => {
+    try {
+      const ref = doc(db, "products", id);
+      const snap = await getDoc(ref);
+
+      if (!snap.exists()) {
+        return rej(new Error("El producto no existe"));
+      }
+
+      await updateDoc(ref, {
+        ...producto
+      });
+
+      console.log("producto actualizado");
+
+      res({
+        id,
+        ...snap.data(),
+        ...producto
+      });
+
+    } catch (error) {
+      console.log(error);
+      rej(error);
+    }
+  });
+}
+
 
 // =====================================
 // Eliminar un producto

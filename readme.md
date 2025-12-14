@@ -1,14 +1,15 @@
 Proyecto Node.js – Descripción General - Alumno: Jorge Vitale
 
-Este proyecto es una aplicación desarrollada en Node.js, creada con fines educativos para aprender conceptos fundamentales del curso de Back-End de Talento-Tech
+Este proyecto es una aplicación desarrollada con Node.js y Express, utiliza Firebase Firestore como base de datos, autenticación con JWT y middleware para proteger rutas. Está desplegada en Vercel y funciona tanto en entorno local como productivo y fue creada con fines educativos para aprender conceptos fundamentales del curso de Back-End de Talento-Tech
 
-Uso de módulos en Node.js
-
-Manejo de rutas y servidor básico
-Interacción con archivos
-Uso de librerías externas
-Implementación de lógica backend
-Base de datos en Firebase
+UTecnologías utilizadas
+- Node.js
+- Express
+- Firebase Firestore
+- JSON Web Tokens (JWT)
+- dotenv
+- cors
+- Vercel (deploy)
 
 El archivo principal es index.js, que inicia el servidor y gestiona las rutas principales de la aplicación.
 La estructura de arbol o directorios es:
@@ -45,5 +46,14 @@ npm install express cors jsonwebtoken dotenv
 Ejecutar en Vsc y levantar el servidor
 npm start
 
-Objetivo del proyecto
-El objetivo es demostrar el funcionamiento básico de un servidor en Node.js y preparar la aplicación para ser subida a GitHub y desplegada en Vercel.
+Autenticación
+- El login es público.
+- Al autenticarse correctamente se genera un **token JWT**.
+- Las rutas de productos requieren el envío del token en el header:
+Authorization: Bearer <token>
+POST /api/login
+GET /api/products
+GET /api/products/id
+POST /api/products/create
+PUT /api/products/id
+DELETE /api/products/id
