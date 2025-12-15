@@ -76,26 +76,7 @@ return(
  )
 }
 
-// =====================================
-// Actualizar un producto existente
-// =====================================
-/* export function actualizarProducto(id, producto){
-  return(
-    new Promise(async (res, rej) => {
-      try{
-        await updateDoc(doc(db, "products", id), {
-          ...producto
-        })
-        console.log("producto actualizado")
-        res({id, ...producto})
-      }catch(error){
-        console.log(error)
-        rej(error)
-      }
-    })
-  )
-}
-*/
+
 // =====================================
 // Actualizar un producto existente
 // =====================================
